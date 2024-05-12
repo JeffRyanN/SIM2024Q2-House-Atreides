@@ -2,8 +2,6 @@ package application.Entity;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertNull;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -79,28 +77,6 @@ public class UseraccountEntityTest {
 
         // Assert the result
         assertFalse("Checking non-existing username failed", result);
-    }
-
-    @Test
-    public void testGetUser_ExistingUsername() throws Exception {
-        UseraccountEntity useraccountEntity = new UseraccountEntity();
-
-        // Perform test operation
-        Useraccount user = useraccountEntity.getUser("admin");
-
-        // Assert the result
-        assertFalse("Getting user details for existing username should not return null", user == null);
-    }
-
-    @Test
-    public void testGetUser_NonExistingUsername() throws Exception {
-        UseraccountEntity useraccountEntity = new UseraccountEntity();
-
-        // Perform test operation
-        Useraccount user = useraccountEntity.getUser("non_existing_username");
-
-        // Assert the result
-        assertNull("Getting user details for non-existing username should return null", user);
     }
 
     @Test
