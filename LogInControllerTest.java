@@ -1,27 +1,28 @@
+package application.Controller;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class LogInControllerTest {
-    private LogInController testSubject;
+import java.io.IOException;
 
+public class LogInControllerTest {
     @Before
     public void setUp() throws Exception {
-        this.testSubject = new LogInController();
+        new LogInController();
     }
 
     @After
     public void tearDown() throws Exception {
-        testSubject = null;
     }
 
     @Test
     public void testCheckLoginSuccess() throws IOException {
-        String username = "testuser";
-        String password = "testpassword";
+        String username = "admin";
+        String password = "admin123";
         String profile = "Admin";
-        assertEquals("Success", testSubject.checkLogin(username, password, profile));
+        assertEquals("Success", LogInController.checkLogin(username, password, profile));
     }
 
     @Test
@@ -29,7 +30,7 @@ public class LogInControllerTest {
         String username = "";
         String password = "";
         String profile = "Admin";
-        assertEquals("Empty", testSubject.checkLogin(username, password, profile));
+        assertEquals("Empty", LogInController.checkLogin(username, password, profile));
     }
 
     @Test
@@ -37,6 +38,6 @@ public class LogInControllerTest {
         String username = "invaliduser";
         String password = "invalidpassword";
         String profile = "Admin";
-        assertEquals("Wrong", testSubject.checkLogin(username, password, profile));
+        assertEquals("Wrong", LogInController.checkLogin(username, password, profile));
     }
 }
